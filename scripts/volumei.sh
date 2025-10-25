@@ -1,0 +1,1 @@
+pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | head -n 1 | tr -d '%' | awk '{print ($1 > 100 ? 100 : $1)}' | xargs -I[] notify-send -e -u low -h string:x-canonical-private-synchronous:volume_notif -h int:value:[] "🔊 Volume : []%"

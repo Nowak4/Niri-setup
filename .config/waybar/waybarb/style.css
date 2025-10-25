@@ -1,0 +1,129 @@
+@define-color foreground #eeeeee;
+@define-color foreground-inactive #aaaaaa;
+@define-color background #101010;
+
+* {
+    font-family: Geist;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+
+#waybar {
+    color: @foreground;
+    background-color: transparent;
+}
+
+.modules-left {
+  padding: 0 2em 0 0em;
+}
+
+.modules-right {
+  padding: 0 0em 0 2em;
+}
+
+#workspaces button {
+    color: @foreground;
+    padding-left: 0;
+    /* background-color: #221c17; */
+    border-radius: 0;
+    /* border-color: @background; */
+    /* border-width: 2px; */
+    
+}
+
+#workspaces button.active {
+    color: @foreground;
+    padding-left: 0;
+    /* background-color: #e6bda2; */
+    border-radius: 0;
+    
+}
+
+
+#memory,
+#custom-platform-profile {
+    padding-left:0
+}
+
+#bluetooth,
+#tray {
+    margin-left: 0em;
+    margin-right: 0em;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0 0.75em 0 0.75em;
+}
+
+#custom-trayd {
+  margin: 0 0 0 0.75em;
+}
+/* #workspaces { */
+/*   margin: 0 1em 0 1em; */
+/* } */
+
+#wireplumber {
+    /* font-size: 13px; */
+}
+
+
+#gammastep {
+    margin-right: 1.75em;
+    margin-left: 0em;
+}
+
+#tray {
+    font-size: 9px;
+}
+
+#utils{
+    /* background-color: #dfb797; */
+    /* color: @background; */
+    /* padding: 0 0.5em 0 0.5em;  */
+    margin:  0 0em 0 0.25em;
+    font-size: 18px;
+}
+
+#network {
+  padding: 0 0.5em 0 0.5em;
+}
+
+#wireplumber {
+  padding: 0 0.5em 0 0.5em;
+}
+
+#battery {
+  padding: 0 0.5em 0 0.5em;
+}
+
+#battery.charging {
+ padding: 0 0.125em 0 0.125em;
+}
+
+
+#battery.discharging {
+ padding: 0 0.3em 0 0.3em;
+}
+
+#clock {
+    /* background-color: #dfb797; */
+    color: @foreground;
+    /* font-size: 12px; */
+    padding: 0 0.5em 0 0.5em;
+    margin: 0.5em 0 0.5em 0; 
+}
+
+#clock.2 {
+    /* background-color: #221c17; */
+    color: @foreground;
+}
+
+/* #window { */
+/*   background-color: #dfb797;  */
+/*   padding: 0 1em 0 1em;  */
+/*   color: @background */
+/* } */
+/* window#waybar.empty #window{ */
+/*   background-color: @background */
+/* } */

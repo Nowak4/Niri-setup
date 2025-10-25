@@ -1,0 +1,23 @@
+window#waybar{
+    all:unset;
+    border: none;
+}
+
+.modules-left {
+    padding:0px;
+    margin:0;
+    border-radius:10px;
+    background: alpha(@background,.6);
+}
+.modules-center {
+    background: #080404;
+    padding:0px;
+    margin:0;
+    border-radius:5px;
+}
+.modules-right {
+    padding:0px;
+    margin: 0;
+    border-radius:10px;
+    background: alpha(@background,.6);
+}

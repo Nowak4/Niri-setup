@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Compartiendo: $1"
+enviar "$1" && notify-send "Enviado a móvil" "$1"

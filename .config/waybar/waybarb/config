@@ -1,0 +1,205 @@
+{
+    "layer": "bottom",
+    "position": "top",
+    "height": 30,
+    "spacing": 5,
+
+    "modules-left": ["clock","clock#2","niri/workspaces"],
+    "modules-center": ["niri/window"],
+    "modules-right": ["group/trayg","group/utils"],
+
+"wlr/taskbar": {
+    "format": " {app_id} ",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+       "Alacritty"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+        "Firefox Web Browser": "Firefox",
+        "Foot Server": "Terminal"
+    }
+},
+
+
+"group/utils": {
+  "orientation": "horizontal",
+  "modules": [
+    "wireplumber",
+    "battery",
+    "network"
+  ]
+},
+
+"group/trayg": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 500,
+        "children-class": "custom/gammastep",
+        "transition-left-to-right": false,
+    },
+  "modules": [
+  "custom/trayd",
+  "tray"
+  ]
+  
+},
+
+"niri/window": {
+	"format": "{app_id}",
+	"rewrite": {
+		"(.*) — Zen Browser": "> [$1]",
+		"(.*) - fish": "> [$1]",
+    "(.*) - nvim":"> [$1]"
+	}
+},
+
+"niri/workspaces": {
+	"format": " <span color=\"#dfb797\">wrk </span> {index}",
+	"format-icons": {
+		// Named workspaces
+		// (you need to configure them in niri)
+		"browser": "",
+		"discord": "",
+		"chat": "<b></b>",
+
+		// Icons by state
+		"active": "",
+		"default": ""
+	},
+
+  "current-only": true
+},
+
+    "clock": {
+        "format": "<span color=\"#dfb797\">dat </span> {:%d/%m}",
+         "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "tz_up",
+                    "on-scroll-down": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+
+    "clock#2": {
+        "format": "<span color=\"#dfb797\">clk </span> {:%H:%M}"
+    },
+
+    "wireplumber": {
+        "format": "<span color=\"#dfb797\">vol </span> {volume}",
+        "max-volume": 100,
+        "scroll-step": 5
+    },
+
+    "battery": {
+        "bat": "BAT0",
+        "interval": 60,
+        "states": {
+        "good": 100,
+        "warning": 30,
+        "critical": 15
+        },
+        "format-discharging": "<span color=\"#dfb797\">bat </span> {capacity} {icon}",
+        "format-charging": "<span color=\"#dfb797\">bat </span> {capacity} <span color=\"#e3cb6d\"> 󱐋</span>",
+        "format-icons": {
+          "good": "<span color=\"#6eec6a\"> </span>",
+          "warning": "<span color=\"#dfb797\"> </span>",
+          "critical": "<span color=\"#f25764\"> </span>"
+        },
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": "\uf4bc  {used:0.1f}G"
+    },
+
+    "temperature": {
+        "format": "{temperatureC}°C"
+    },
+
+    "network": {
+        "format": "",
+        "format-ethernet": "\udb83\udc9d",
+        "format-wifi": "<span color=\"#dfb797\">net </span> ({signalStrength}%)",
+        "format-disconnected": "<span color=\"#dfb797\">net </span> off",
+        "format-icons": ["\udb82\udd2f", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"],
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+    },
+
+    "bluetooth": {
+        "format": "\udb80\udcaf",
+        "format-disabled": "\udb80\udcb2",
+        "format-connected": "\udb80\udcb1",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    },
+
+    "hyprland/language": {
+        "format": "{short}"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 16,
+        "spacing": 10,
+        "icons": {
+        "blueman": "bluetooth",
+        "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    }
+    },
+
+    "custom/platform-profile": {
+	"format": "{icon} ",
+	"exec": "~/.config/waybar/platform_profile.sh",
+	"return-type": "json",
+	"restart-interval": 1,
+	"format-icons": {
+	    "quiet": "\udb80\udf2a",
+	    "balanced": "\udb80\ude10",
+	    "performance": "\uf427",
+            "default": "?"
+	},
+    },
+
+     "custom/gammastep": {
+	"format": "",
+	"on-click": "~/scripts/gammastep.sh",
+    },
+
+
+"custom/trayd": {
+  "format": "&lt;",
+},
+
+
+"idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "\udb80\udd76",
+            "deactivated": "\udb83\udfaa"
+        }
+    }
+},
+

@@ -1,0 +1,1 @@
+waybar --config ~/.config/waybar/bar2/config --style ~/.config/waybar/bar2/style.css
