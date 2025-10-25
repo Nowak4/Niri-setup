@@ -16,3 +16,9 @@ Niri setup
 <img width="1920" height="231" alt="image" src="https://github.com/user-attachments/assets/a2273922-0d9d-461c-8d45-7ea03a804b67" />
 
 <img width="1920" height="231" alt="image" src="https://github.com/user-attachments/assets/0bca5489-aaed-431f-a8e6-96c1c5de3f13" />
+Programs:
+
+```
+sudo pacman -S thunar xarchiver kitty cliphist rofi waybar swaync swww polkit-gnome xwayland-satellite hyprpicker wlogout brightnessctl
+yay -S niriswitcher xwayland-satellite sunsetr-bin
+```
