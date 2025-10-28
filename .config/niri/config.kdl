@@ -92,8 +92,30 @@ output "Lenovo Group Limited 0x40A9 Unknown" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    position x=0 y=1080
+
     variable-refresh-rate on-demand=true
+}
+
+output "Beihai Century Joint Innovation Technology Co.,Ltd OV-KR24VF16 0000000000001" {
+    mode "1920x1080@120.001"
+    scale 1
+
+    // Transform allows to rotate the output counter-clockwise, valid values are:
+    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
+    transform "normal"
+
+    // Position of the output in the global coordinate space.
+    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
+    // The cursor can only move between directly adjacent outputs.
+    // Output scale and rotation has to be taken into account for positioning:
+    // outputs are sized in logical, or scaled, pixels.
+    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
+    // so to put another output directly adjacent to it on the right, set its x to 1920.
+    // If the position is unset or results in an overlap, the output is instead placed
+    // automatically.
+    // variable-refresh-rate on-demand=true
+    position x=0 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -101,7 +123,7 @@ output "Lenovo Group Limited 0x40A9 Unknown" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 5
+    gaps 0
     background-color "transparent"
 
 
@@ -221,6 +243,7 @@ spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swaybg" "--i" "Imágenes/image1b.png"
+spawn-at-startup "swayosd-server"
 spawn-at-startup "niriswitcher"
 spawn-at-startup "sunsetr"
 
@@ -235,7 +258,7 @@ spawn-at-startup "sunsetr"
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Imágenes/screenshots//Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
@@ -390,8 +413,8 @@ binds {
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "pactl" "set-sink-volume"  "@DEFAULT_SINK@"  "+5%"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "pactl" "set-sink-volume"  "@DEFAULT_SINK@"  "-5%"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
@@ -600,14 +623,15 @@ binds {
     Mod+I { spawn "swaync-client" "--toggle-panel"; }
     Mod+Return { spawn "~/scripts/browser.sh"; }
     Mod+Shift+D { spawn "~/scripts/rofidocs.sh"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "10%-"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "10%+"; }
-    Mod+X {spawn "warpd" "--hint";}
+    XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
     Alt+Tab repeat=false { spawn "gdbus" "call" "--session" "--dest" "io.github.isaksamsten.Niriswitcher" "--object-path" "/io/github/isaksamsten/Niriswitcher" "--method" "io.github.isaksamsten.Niriswitcher.application" ; }
     Alt+Shift+Tab repeat=false { spawn "gdbus" "call" "--session" "--dest" "io.github.isaksamsten.Niriswitcher" "--object-path" "/io/github/isaksamsten/Niriswitcher" "--method" "io.github.isaksamsten.Niriswitcher.application" ; }
     Mod+P {spawn "hyprpicker" "-a";}
     Mod+b {spawn "scripts/waybar-t.sh";}
     Mod+e {spawn "thunar";}
+    Ctrl+Space {spawn "playerctl" "play-pause";}
+    Mod+X {spawn "wl-kbptr";}
 }
 
 
