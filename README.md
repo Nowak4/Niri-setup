@@ -19,7 +19,7 @@ Niri setup
 Programs:
 
 ```
-sudo pacman -S thunar xarchiver kitty cliphist rofi waybar swaync swww polkit-gnome xwayland-satellite hyprpicker wlogout brightnessctl neovim
+sudo pacman -S thunar xarchiver kitty cliphist rofi waybar swaync swww polkit-gnome xwayland-satellite hyprpicker wlogout brightnessctl neovim nwg-look
 yay -S niriswitcher sunsetr-bin swayosd //or paru -S niriswitcher sunsetr-bin swayosd
 ```
 Extras:
