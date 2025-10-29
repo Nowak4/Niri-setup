@@ -19,8 +19,8 @@ Niri setup
 Programs:
 
 ```
-sudo pacman -S thunar xarchiver kitty cliphist rofi waybar swaync swww polkit-gnome xwayland-satellite hyprpicker wlogout brightnessctl
-yay -S niriswitcher sunsetr-bin swayosd
+sudo pacman -S thunar xarchiver kitty cliphist rofi waybar swaync swww polkit-gnome xwayland-satellite hyprpicker wlogout brightnessctl neovim nwg-look
+yay -S niriswitcher sunsetr-bin swayosd //or paru -S niriswitcher sunsetr-bin swayosd
 ```
 Extras:
 - Libinput backend for swayosd-server: ```sudo systemctl enable --now swayosd-libinput-backend.service```
