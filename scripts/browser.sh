@@ -30,5 +30,5 @@ listview {
 encoded_query=$(echo "$query" | sed 's/ /+/g')
 url="https://www.google.com/search?q=$encoded_query"
 
-~/mercury/mercury "$url" &
+firefox "$url" &
 

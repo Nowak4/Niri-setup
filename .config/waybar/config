@@ -4,9 +4,9 @@
     "height": 30,
     "spacing": 5,
 
-    "modules-left": ["clock","clock#2","niri/workspaces"],
-    "modules-center": ["niri/window"],
-    "modules-right": ["group/trayg","group/utils"],
+    "modules-left": ["niri/workspaces","niri/window"],
+    "modules-center": ["clock","clock#2"],
+    "modules-right": ["group/trayg","group/utils","battery#2"],
 
     "wlr/taskbar": {
       "format": " {app_id} ",
@@ -52,7 +52,6 @@
     "group/utils": {
       "orientation": "horizontal",
       "modules": [
-      "wireplumber",
       "group/energy",
       "network"
       ]
@@ -66,23 +65,25 @@
         "transition-left-to-right": false,
       },
       "modules": [
-        "custom/trayd",
+      "wireplumber",
       "tray"
       ]
 
     },
 
     "niri/window": {
-      "format": "{app_id}",
+      "format": "{}",
+      "max-length": 45,
       "rewrite": {
-        "(.*) — Zen Browser": "> [$1]",
-        "(.*) - fish": "> [$1]",
-        "(.*) - nvim":"> [$1]"
+        "(.*) — Mozilla Firefox": "firefox > [$1]",
+        "(.*) - fish": "kitty > [$1]",
+        "~: (.*)": "kitty > [$1]",
       }
+
     },
 
     "niri/workspaces": {
-      "format": " <span color=\"#CDD2CC\">wrk </span> {index}",
+      "format": " [{index}] ",
       "format-icons": {
         // Named workspaces
         // (you need to configure them in niri)
@@ -99,7 +100,7 @@
     },
 
     "clock": {
-      "format": "<span color=\"#CDD2CC\">dat </span> {:%d/%m}",
+      "format": "<span color=\"#CDD2CC\">[</span>{:%d/%m}",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
       "calendar": {
         "mode"          : "year",
@@ -124,11 +125,11 @@
     },
 
     "clock#2": {
-      "format": "<span color=\"#CDD2CC\">clk </span> {:%H:%M}"
+      "format": "<span color=\"#CDD2CC\"></span>{:%H:%M}]"
     },
 
     "wireplumber": {
-      "format": "<span color=\"#CDD2CC\">vol </span> {volume}",
+      "format": "{volume},",
       "max-volume": 100,
       "scroll-step": 5
     },
@@ -141,20 +142,37 @@
         "warning": 30,
         "critical": 15
       },
-      "format-discharging": "<span color=\"#CDD2CC\">bat </span> {capacity} {icon}",
-      "format-charging": "<span color=\"#CDD2CC\">bat </span> {capacity} <span color=\"#e3cb6d\"> 󱐋</span>",
+      "format-discharging": "{capacity},",
+      "format-charging": "{capacity},",
       "format-icons": {
-        "good": "<span color=\"#6eec6a\"> </span>",
-        "warning": "<span color=\"#dfb797\"> </span>",
-        "critical": "<span color=\"#f25764\"> </span>"
+        "good": "<span color=\"#6eec6a\"></span>",
+        "warning": "<span color=\"#dfb797\"></span>",
+        "critical": "<span color=\"#f25764\"></span>"
+      },
+    },
+
+    "battery#2": {
+      "bat": "BAT0",
+      "interval": 60,
+      "states": {
+        "good": 100,
+        "warning": 30,
+        "critical": 15
+      },
+      "format-discharging": "{icon}",
+      "format-charging": "<span color=\"#e3cb6d\"> 󱐋</span>",
+      "format-icons": {
+        "good": "<span color=\"#6eec6a\"></span>",
+        "warning": "<span color=\"#dfb797\"></span>",
+        "critical": "<span color=\"#f25764\"></span>"
       },
     },
 
     "network": {
       "format": "",
       "format-ethernet": "\udb83\udc9d",
-      "format-wifi": "<span color=\"#CDD2CC\">net </span> ({signalStrength}%)",
-      "format-disconnected": "<span color=\"#CDD2CC\">net </span> off",
+      "format-wifi": "{signalStrength}",
+      "format-disconnected": "off",
       "format-icons": ["\udb82\udd2f", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"],
       "tooltip-format-wifi": "{essid} ({signalStrength}%)",
       "tooltip-format-ethernet": "{ifname}",
