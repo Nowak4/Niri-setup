@@ -1,6 +1,6 @@
 configuration {
 modes: "window,drun,run,ssh";
-font: "Geist 10";
+font: "JetBrainsMonoNL Nerd Font SemiBold 11";
 location: 2;
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
@@ -185,17 +185,19 @@ completer-mode: "filebrowser";
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    north;
+    location:                    northwest;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       50%;
-    x-offset:                    0px;
-    y-offset:                    -38px;
+    width:                       85%;
+    height:                      40px;
+    x-offset:                    60px;
+    y-offset:                    -40px;
     background-color:            #101010;  
     // background-image:            url("~/Imágenes/image(6).png",width);
     border:                      0px solid;
     border-radius:               0px;
     border-color:                transparent;
+	font-weight: 9900;
 
 
 
@@ -214,7 +216,7 @@ inputbar {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       4;
+    lines:                       11;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -224,12 +226,12 @@ listview {
     fixed-columns:               false;
     flow:                       vertical;
     expand: true;                                  
-    width:           130em;
+    width:           100%;
     margin-right:    0px;                          
 
 
     
-    spacing:                     0.4em;
+    spacing:                     0.5em;
     margin:                      0px;
     padding:                     0px;
     margin-left:                10px;
@@ -240,7 +242,7 @@ listview {
     text-color:                  #ffffff;
     text-align:                  center;
     cursor:                      "default";
-    horizontal-align: 0.50;
+    horizontal-align: 0;
 }
 
 element {
@@ -258,6 +260,6 @@ entry, button, mainbox, elemet-icon, prompt, {
 
 element-text {
     horizontal-align: 1;
-    vertical-align: 0.5;
-  padding: 0.35em;
+    vertical-align: 0.3;
+  padding: 0.35em 0em 0em 0.65em;
 }

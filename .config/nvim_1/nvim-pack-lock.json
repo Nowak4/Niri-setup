@@ -1,0 +1,84 @@
+{
+  "plugins": {
+    "bufferline.nvim": {
+      "rev": "655133c",
+      "src": "https://github.com/akinsho/bufferline.nvim"
+    },
+    "coc": {
+      "rev": "ea88358f",
+      "src": "https://github.com/neoclide/coc.nvim"
+    },
+    "coc.nvim": {
+      "rev": "ea88358f",
+      "src": "https://github.com/neoclide/coc.nvim"
+    },
+    "foldtext.nvim": {
+      "rev": "97c3fbd",
+      "src": "https://github.com/OXY2DEV/foldtext.nvim"
+    },
+    "here.term": {
+      "rev": "3e1ec57",
+      "src": "https://github.com/jaimecgomezz/here.term"
+    },
+    "mason.nvim": {
+      "rev": "57e5a8a",
+      "src": "https://github.com/williamboman/mason.nvim"
+    },
+    "mellifluous": {
+      "rev": "4ce6258",
+      "src": "https://github.com/ramojus/mellifluous.nvim"
+    },
+    "mini.clue": {
+      "rev": "5f0f5ca",
+      "src": "https://github.com/nvim-mini/mini.clue"
+    },
+    "mini.move": {
+      "rev": "4d21420",
+      "src": "https://github.com/nvim-mini/mini.move"
+    },
+    "mini.pick": {
+      "rev": "6b79745",
+      "src": "https://github.com/nvim-mini/mini.pick"
+    },
+    "mini.surround": {
+      "rev": "88c5229",
+      "src": "https://github.com/nvim-mini/mini.surround"
+    },
+    "moonfly": {
+      "rev": "1ad5a8d",
+      "src": "https://github.com/bluz71/vim-moonfly-colors"
+    },
+    "nvim-lspconfig": {
+      "rev": "0044d09",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-ufo": {
+      "rev": "72d54c3",
+      "src": "https://github.com/kevinhwang91/nvim-ufo"
+    },
+    "oil.nvim": {
+      "rev": "cbcb3f9",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd522",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "pretty-fold.nvim": {
+      "rev": "a7d8b42",
+      "src": "https://github.com/anuvyklack/pretty-fold.nvim"
+    },
+    "promise-async": {
+      "rev": "119e896",
+      "src": "https://github.com/kevinhwang91/promise-async"
+    },
+    "telescope.nvim": {
+      "rev": "e69b434",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "yuck.vim": {
+      "rev": "9b5e037",
+      "src": "https://github.com/elkowar/yuck.vim"
+    }
+  }
+}

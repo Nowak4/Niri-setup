@@ -1,0 +1,204 @@
+{
+  "layer": "bottom",
+    "position": "top", 
+    "height": 40,
+    "spacing": 5,
+
+    "modules-left": ["niri/workspaces","niri/window"],
+    "modules-center": ["clock","clock#2"],
+    "modules-right": ["group/trayg","group/utils","battery#2"],
+
+    "wlr/taskbar": {
+      "format": " {app_id} ",
+      "tooltip-format": "{title}",
+      "on-click": "activate",
+      "on-click-middle": "close",
+      "ignore-list": [
+        "Alacritty"
+      ],
+      "app_ids-mapping": {
+        "firefoxdeveloperedition": "firefox-developer-edition"
+      },
+      "rewrite": {
+        "Firefox Web Browser": "Firefox",
+        "Foot Server": "Terminal"
+      }
+    },
+
+    "custom/power-saver": {
+      "format": " 󱟦 ",
+      "on-click": "~/scripts/power-saver.sh",
+    },
+
+    "custom/power-saver-off": {
+      "format": " 󰂄 ",
+      "on-click": "~/scripts/power-saver-off.sh",
+    },
+
+    "group/energy": {
+      "orientation": "inherit",
+      "drawer": {
+        "transition-duration": 500,
+        "children-class": "battery",
+        "transition-left-to-right": false,
+      },
+      "modules": [
+        "battery",
+        "custom/power-saver",
+      "custom/power-saver-off"
+      ]
+    },
+
+    "group/utils": {
+      "orientation": "horizontal",
+      "modules": [
+      "group/energy",
+      "network"
+      ]
+    },
+
+    "group/trayg": {
+      "orientation": "inherit",
+      "drawer": {
+        "transition-duration": 500,
+        "children-class": "custom/gammastep",
+        "transition-left-to-right": false,
+      },
+      "modules": [
+      "wireplumber",
+      "tray"
+      ]
+
+    },
+
+    "niri/window": {
+      "format": "{}",
+      "max-length": 45,
+      "rewrite": {
+        "(.*) — Mozilla Firefox": "firefox ~ [$1]",
+        "(.*) - fish": "kitty ~ [$1]",
+        "~: (.*)": "kitty ~ [$1]",
+      }
+
+    },
+
+    "niri/workspaces": {
+      "format": " [{index}] ",
+      "format-icons": {
+        // Named workspaces
+        // (you need to configure them in niri)
+        "browser": "",
+        "discord": "",
+        "chat": "<b></b>",
+
+        // Icons by state
+        "active": "",
+        "default": ""
+      },
+
+      "current-only": true
+    },
+
+    "clock": {
+      "format": "{:%d/%m}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+        "mode"          : "year",
+        "mode-mon-col"  : 3,
+        "weeks-pos"     : "right",
+        "on-scroll"     : 1,
+        "format": {
+          "months":     "<span color='#ffead3'><b>{}</b></span>",
+          "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+          "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+          "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+          "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+        }
+      },
+      "actions":  {
+        "on-click-right": "mode",
+        "on-scroll-up": "tz_up",
+        "on-scroll-down": "tz_down",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down"
+      }
+    },
+
+    "clock#2": {
+      "format": " {:%H:%M}"
+    },
+
+    "wireplumber": {
+      "format": "{volume}/",
+      "max-volume": 100,
+      "scroll-step": 5
+    },
+
+    "battery": {
+      "bat": "BAT0",
+      "interval": 60,
+      "states": {
+        "good": 100,
+        "warning": 30,
+        "critical": 15
+      },
+      "format-discharging": "{capacity}/",
+      "format-charging": "{capacity}/",
+      "format-icons": {
+        "good": "<span color=\"#6eec6a\"></span>",
+        "warning": "<span color=\"#dfb797\"></span>",
+        "critical": "<span color=\"#f25764\"></span>"
+      },
+    },
+
+    "battery#2": {
+      "bat": "BAT0",
+      "interval": 60,
+      "states": {
+        "good": 100,
+        "warning": 30,
+        "critical": 15
+      },
+      "format-discharging": "{icon}",
+      "format-charging": "<span color=\"#e3cb6d\"> 󱐋</span>",
+      "format-icons": {
+        "good": "<span color=\"#6eec6a\"></span>",
+        "warning": "<span color=\"#dfb797\"></span>",
+        "critical": "<span color=\"#f25764\"></span>"
+      },
+    },
+
+    "network": {
+      "format": "",
+      "format-ethernet": "\udb83\udc9d",
+      "format-wifi": "{signalStrength}",
+      "format-disconnected": "off",
+      "format-icons": ["\udb82\udd2f", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"],
+      "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+      "tooltip-format-ethernet": "{ifname}",
+      "tooltip-format-disconnected": "Disconnected",
+    },
+
+
+    "tray": {
+      "icon-size": 16,
+      "spacing": 16,
+      "spacing": 10,
+      "icons": {
+        "blueman": "bluetooth",
+        "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+      }
+    },
+
+
+    "custom/gammastep": {
+      "format": "",
+      "on-click": "~/scripts/gammastep.sh",
+    },
+
+
+    "custom/trayd": {
+      "format": "&lt;",
+    },
+
+}
