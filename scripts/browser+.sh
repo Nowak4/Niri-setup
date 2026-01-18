@@ -64,8 +64,6 @@ fi
 firefox "$FINAL_URL" &
 
 # Esperar un momento a que la ventana se registre
-sleep 0.3
 
 # Focalizar Firefox en Niri
 # (Usamos 'msg action' para asegurar compatibilidad, ajusta si tu versión de niri usa otra sintaxis)
-niri msg action focus-window --app-id firefox
