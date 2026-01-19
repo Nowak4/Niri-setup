@@ -1,0 +1,145 @@
+{
+    "layer": "top",
+    "position": "left",
+    "height": 0,
+    "spacing": 5,
+
+    "modules-left": ["clock","clock#2"],
+    "modules-center": ["niri/workspaces"],
+    "modules-right": ["tray","group/utils"],
+
+"group/utils": {
+  "orientation": "vertical",
+  "modules": [
+    "wireplumber",
+    "network",
+    "battery"
+  ]
+},
+
+"niri/workspaces": {
+	"format": "{index}",
+	"format-icons": {
+		// Named workspaces
+		// (you need to configure them in niri)
+		"browser": "",
+		"discord": "",
+		"chat": "<b></b>",
+
+		// Icons by state
+		"active": "",
+		"default": ""
+	}
+},
+
+    "clock": {
+        "format": "{:%d\n%m}",
+         "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "tz_up",
+                    "on-scroll-down": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+
+    "clock#2": {
+        "format": "{:%H\n%M}"
+    },
+
+    "wireplumber": {
+        "format": " ",
+        "max-volume": 100,
+        "scroll-step": 5
+    },
+
+    "battery": {
+        "bat": "BAT0",
+        "interval": 60,
+        "format": "{icon}\n{capacity}",
+        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": "\uf4bc  {used:0.1f}G"
+    },
+
+    "temperature": {
+        "format": "{temperatureC}°C"
+    },
+
+    "network": {
+        "format": "",
+        "format-ethernet": "\udb83\udc9d",
+        "format-wifi": "{icon}",
+        "format-disconnected": "\udb83\udc9c",
+        "format-icons": ["\udb82\udd2f", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"],
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+    },
+
+    "bluetooth": {
+        "format": "\udb80\udcaf",
+        "format-disabled": "\udb80\udcb2",
+        "format-connected": "\udb80\udcb1",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    },
+
+    "hyprland/language": {
+        "format": "{short}"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 16,
+        "spacing": 10,
+        "icons": {
+        "blueman": "bluetooth",
+        "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    }
+    },
+
+    "custom/platform-profile": {
+	"format": "{icon} ",
+	"exec": "~/.config/waybar/platform_profile.sh",
+	"return-type": "json",
+	"restart-interval": 1,
+	"format-icons": {
+	    "quiet": "\udb80\udf2a",
+	    "balanced": "\udb80\ude10",
+	    "performance": "\uf427",
+            "default": "?"
+	},
+    },
+
+     "custom/gammastep": {
+	"format": "",
+	"on-click": "~/scripts/gammastep.sh",
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "\udb80\udd76",
+            "deactivated": "\udb83\udfaa"
+        }
+    }
+}

@@ -1,0 +1,96 @@
+@define-color foreground #eeeeee;
+@define-color foreground-inactive #aaaaaa;
+@define-color background #1d1713;
+
+* {
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 11px;
+    padding: 0;
+    margin: 0;
+}
+
+#waybar {
+    color: @foreground;
+    background-color: @background;
+}
+
+#workspaces button {
+    color: @foreground;
+    padding-left: 0;
+    background-color: #221c17;
+    border-radius: 0;
+    border-color: @background;
+    border-width: 2px;
+    
+}
+
+#workspaces button.active {
+    color: @background;
+    padding-left: 0;
+    background-color: #e6bda2;
+    border-radius: 0;
+    
+}
+
+
+#memory,
+#custom-platform-profile {
+    padding-left:0
+}
+
+#bluetooth,
+#tray {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/* #workspaces { */
+/*   margin: 0 1em 0 1em; */
+/* } */
+
+#wireplumber {
+    font-size: 11px;
+}
+
+
+#gammastep {
+    margin-right: 1.75em;
+    margin-left: 0em;
+}
+
+#tray {
+    font-size: 9px;
+}
+
+#utils{
+    /* background-color: #dfb797; */
+    /* color: @background; */
+    font-size: 12px;
+    margin-top: 0em;
+}
+
+#network {
+  padding: 0.5em 0.40em 0.5em 0;
+}
+
+#wireplumber {
+  padding: 0.5em 0 0.5em 0.5em;
+}
+
+#battery {
+  padding: 0.5em 0 0.5em 0.25em;
+}
+
+#clock {
+    background-color: #dfb797;
+    color: @background;
+    font-size: 12px;
+    padding: 0.25em 0.75em 0.25em 0.75em ;
+}
+
+#clock.2 {
+    background-color: #221c17;
+    color: @foreground;
+}

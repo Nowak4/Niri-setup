@@ -1,0 +1,29 @@
+{
+    "layer": "top",
+        "mode": "dock",
+        "position": "bottom",
+        "width": 1,
+        "margin-right": 0,
+        "reload_style_on_change": true,
+        "modules-center": ["wlr/taskbar"],
+  
+
+        "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 14,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+       "Alacritty"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+        "Firefox Web Browser": "Firefox",
+        "Foot Server": "Terminal"
+    }
+}
+} 
